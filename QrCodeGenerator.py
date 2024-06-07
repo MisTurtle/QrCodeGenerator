@@ -34,7 +34,7 @@ def generate_qr_code():
 
     if has_logo_var.get() and exists(logo_path_var.get()) and logo_size_var.get() > 0:
         # Load the logo and resize it
-        logo = Image.open(logo_path_var.get())
+        logo = Image.open(logo_path_var.get()).convert("RGBA")
         basewidth = int(logo_size_var.get() * img.size[0])
         wpercent = (basewidth / float(logo.size[0]))
         hsize = int((float(logo.size[1]) * float(wpercent)))
